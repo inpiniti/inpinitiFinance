@@ -117,3 +117,94 @@ print(df)
 105      삼성전자     005930  KOSPI  ...              -4.154728              -7.340720                 8.370703
 106      삼성전자     005930  KOSPI  ...               8.370703               3.868195                      NaN
 ```
+
+# 8. 딥러닝
+
+```
+model = dt.ai.deep_learning(df)
+```
+
+```
+Epoch 1/10
+3/3 [==============================] - 0s 2ms/step - loss: 706845312.0000
+Epoch 2/10
+3/3 [==============================] - 0s 580us/step - loss: 450014688.0000
+Epoch 3/10
+3/3 [==============================] - 0s 688us/step - loss: 281121024.0000
+Epoch 4/10
+3/3 [==============================] - 0s 552us/step - loss: 125484616.0000
+Epoch 5/10
+3/3 [==============================] - 0s 530us/step - loss: 189583840.0000
+Epoch 6/10
+3/3 [==============================] - 0s 546us/step - loss: 88214128.0000
+Epoch 7/10
+3/3 [==============================] - 0s 466us/step - loss: 67864080.0000
+Epoch 8/10
+3/3 [==============================] - 0s 483us/step - loss: 52074252.0000
+Epoch 9/10
+3/3 [==============================] - 0s 695us/step - loss: 29803728.0000
+Epoch 10/10
+3/3 [==============================] - 0s 641us/step - loss: 35682296.0000
+1/1 [==============================] - 0s 31ms/step
+Deep Learning MSE: 4770194.0000
+```
+
+# 9. Linear Regression
+
+```
+model = dt.ai.regressor(df)
+```
+
+```
+LinearRegression MSE: 87.4084
+```
+
+# 10. Ridge Regression
+
+```
+model = dt.ai.ridge(df)
+```
+
+```
+Ridge Regression MSE: 87.3161
+```
+
+# 11. Lasso Regression
+
+```
+model = dt.ai.lasso(df)
+```
+
+```
+Lasso Regression MSE: 76.6489
+```
+
+# 12. ElasticNet Regression
+
+```
+model = dt.ai.elastic_net(df)
+```
+
+```
+Elastic Net Regression MSE: 79.1272
+```
+
+# 13. Desicion Tree Regression
+
+```
+model = dt.ai.decision_tree(df)
+```
+
+```
+Decision Tree Regression MSE: 475.2224
+```
+
+# 14. random_forest
+
+```
+model = dt.ai.random_forest(df)
+```
+
+```
+Random Forest Regression MSE: 200.4157
+```
