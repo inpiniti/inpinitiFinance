@@ -1,6 +1,6 @@
 import ifinance as dt
 
-api_key = '9264c9a7d0da3f3ab83b509033a337722b5c329f'
+api_key = ''
 
 dt.set_api_key(api_key)
 
