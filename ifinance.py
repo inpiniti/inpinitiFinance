@@ -3,6 +3,7 @@ import pandas as pd
 import requests
 from datetime import datetime, timedelta
 import json
+from deep_learning import deep_learning
 
 ### 0. 객체 생성 ###
 # 객체 생성 (API KEY 지정)
@@ -187,14 +188,7 @@ def get_stock_dataframe(sector):
             response = requests.get(url, json=query_params, headers=headers)
             data += response.json()['data']
     
-    result = []
-    for item in data:
-        result.append({
-            'code': item['code'],
-            'symbolCode': item['symbolCode'],
-            'name': item['name']
-        })
-    json_str = json.dumps(result, ensure_ascii=False, indent=2)
+    json_str = json.dumps(data, ensure_ascii=False, indent=2)
     json_result = json.loads(json_str)
     
     return pd.DataFrame(json_result)
