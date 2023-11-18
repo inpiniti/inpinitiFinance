@@ -1,5 +1,13 @@
 # inpiniti finance
 
+![version](https://img.shields.io/badge/version-1.0.1-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Dependencies](https://img.shields.io/badge/Dependencies-OpenDartReader-green.svg)
+![Dependencies](https://img.shields.io/badge/Dependencies-pandas-green.svg)
+![Dependencies](https://img.shields.io/badge/Dependencies-requests-green.svg)
+![Dependencies](https://img.shields.io/badge/Dependencies-sklearn-green.svg)
+![Dependencies](https://img.shields.io/badge/Dependencies-keras-green.svg)
+
 본 모듈은 Dart 전자공시시스템에서 재무정보,
 KRX 정보데이터시스템에서 개별종목 시세 추이,
 Daum 에서 섹터정보 종목정보 등을 크롤링하여 데이터를 dataframe 제공해주는 라이브러리입니다.

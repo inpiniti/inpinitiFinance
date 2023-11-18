@@ -7,7 +7,7 @@ setup(
     author = 'inpiniti',
     author_email = 'younginpiniti@gmail.com',
     url='https://github.com/inpiniti/inpinitiFinance',
-    install_requires=['OpenDartReader', 'pandas', 'requests',],
+    install_requires=['OpenDartReader', 'pandas', 'requests', 'keras', 'sklearn'],
     py_modules = ['ifinance'],
     keywords = ['finance', 'stock', 'data', 'inpiniti', 'dart', 'krx'],
 )
