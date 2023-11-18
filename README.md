@@ -126,7 +126,7 @@ print(df)
 106      삼성전자     005930  KOSPI  ...               8.370703               3.868195                      NaN
 ```
 
-# 8. 딥러닝
+### 8. Deep Learning
 
 8번 부터는 위에서 조회한 데이터를 가지고 학습을 시켜 모델을 만드는 함수입니다.
 모델로 부터 예측하고자 하면 `predict()` 이라는 함수로 예측을 하시면 됩니다.
@@ -160,7 +160,7 @@ Epoch 10/10
 Deep Learning MSE: 4770194.0000
 ```
 
-# 9. Linear Regression
+### 9. Linear Regression
 
 ```
 model = ifinance.ai.regressor(df)
@@ -170,7 +170,7 @@ model = ifinance.ai.regressor(df)
 LinearRegression MSE: 87.4084
 ```
 
-# 10. Ridge Regression
+### 10. Ridge Regression
 
 ```
 model = ifinance.ai.ridge(df)
@@ -180,7 +180,7 @@ model = ifinance.ai.ridge(df)
 Ridge Regression MSE: 87.3161
 ```
 
-# 11. Lasso Regression
+### 11. Lasso Regression
 
 ```
 model = ifinance.ai.lasso(df)
@@ -190,7 +190,7 @@ model = ifinance.ai.lasso(df)
 Lasso Regression MSE: 76.6489
 ```
 
-# 12. ElasticNet Regression
+### 12. ElasticNet Regression
 
 ```
 model = ifinance.ai.elastic_net(df)
@@ -210,7 +210,7 @@ model = ifinance.ai.decision_tree(df)
 Decision Tree Regression MSE: 475.2224
 ```
 
-# 14. random_forest
+### 14. Random Forest Regression
 
 ```
 model = ifinance.ai.random_forest(df)
