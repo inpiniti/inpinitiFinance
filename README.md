@@ -8,7 +8,19 @@ API 사용에 대한 책임은 사용자 본인에게 있으며, 도의적으로
 
 ## 환경설정
 
-### dart api key
+### 1. 설치
+
+```
+pip install inpinitiFinance
+```
+
+### 2. import
+
+```
+import ifinance as dt
+```
+
+### 3. dart api key 설정
 
 dart 를 이용하시려면 dart에서 생성한 api_key 를 지정해주셔야 합니다.
 
@@ -18,24 +30,30 @@ api_key = 'your_api_key_here'
 dt.set_api_key(api_key)
 ```
 
-### 예시
+### 4. 재무재표 정보 가져오기
 
 ```
-import ifinance as dt
-
-api_key = 'your_api_key_here'
-
-dt.set_api_key(api_key)
-
 df = dt.get_financial_dataframe('005930')
 print(df)
+```
 
+### 5. 섹터 정보 가져오기
+
+```
 df = dt.get_sector_dataframe()
 print(df)
+```
 
+### 6. 종목정보 가져오기
+
+```
 df = dt.get_stock_dataframe('G101010')
 print(df)
+```
 
+### 7. 월 종가 정보 가져오기
+
+```
 df = dt.get_monthly_stock_dataframe('KR7005930003')
 print(df)
 ```
