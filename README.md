@@ -17,7 +17,7 @@ pip install inpinitiFinance
 ### 2. import
 
 ```
-import ifinance as dt
+import ifinance
 ```
 
 ### 3. dart api key 설정
@@ -27,20 +27,20 @@ dart 를 이용하시려면 dart에서 생성한 api_key 를 지정해주셔야 
 ```
 api_key = 'your_api_key_here'
 
-dt.set_api_key(api_key)
+ifinance.set_api_key(api_key)
 ```
 
 ### 4. 재무재표 정보 가져오기
 
 ```
-df = dt.get_financial_dataframe('005930')
+df = ifinance.get_financial_dataframe('005930')
 print(df)
 ```
 
 ### 5. 섹터 정보 가져오기
 
 ```
-df = dt.get_sector_dataframe()
+df = ifinance.get_sector_dataframe()
 print(df)
 ```
 
@@ -62,7 +62,7 @@ print(df)
 ### 6. 종목정보 가져오기
 
 ```
-df = dt.get_stock_dataframe('G101010')
+df = ifinance.get_stock_dataframe('G101010')
 print(df)
 ```
 
@@ -99,7 +99,7 @@ print(df)
 ### 7. 월 종가 정보 가져오기
 
 ```
-df = dt.get_monthly_stock_dataframe('KR7005930003')
+df = ifinance.get_monthly_stock_dataframe('KR7005930003')
 print(df)
 ```
 
@@ -120,8 +120,11 @@ print(df)
 
 # 8. 딥러닝
 
+8번 부터는 위에서 조회한 데이터를 가지고 학습을 시켜 모델을 만드는 함수입니다.
+모델로 부터 예측하고자 하면 `predict()` 이라는 함수로 예측을 하시면 됩니다.
+
 ```
-model = dt.ai.deep_learning(df)
+model = ifinance.ai.deep_learning(df)
 ```
 
 ```
@@ -152,7 +155,7 @@ Deep Learning MSE: 4770194.0000
 # 9. Linear Regression
 
 ```
-model = dt.ai.regressor(df)
+model = ifinance.ai.regressor(df)
 ```
 
 ```
@@ -162,7 +165,7 @@ LinearRegression MSE: 87.4084
 # 10. Ridge Regression
 
 ```
-model = dt.ai.ridge(df)
+model = ifinance.ai.ridge(df)
 ```
 
 ```
@@ -172,7 +175,7 @@ Ridge Regression MSE: 87.3161
 # 11. Lasso Regression
 
 ```
-model = dt.ai.lasso(df)
+model = ifinance.ai.lasso(df)
 ```
 
 ```
@@ -182,7 +185,7 @@ Lasso Regression MSE: 76.6489
 # 12. ElasticNet Regression
 
 ```
-model = dt.ai.elastic_net(df)
+model = ifinance.ai.elastic_net(df)
 ```
 
 ```
@@ -192,7 +195,7 @@ Elastic Net Regression MSE: 79.1272
 # 13. Desicion Tree Regression
 
 ```
-model = dt.ai.decision_tree(df)
+model = ifinance.ai.decision_tree(df)
 ```
 
 ```
@@ -202,7 +205,7 @@ Decision Tree Regression MSE: 475.2224
 # 14. random_forest
 
 ```
-model = dt.ai.random_forest(df)
+model = ifinance.ai.random_forest(df)
 ```
 
 ```
