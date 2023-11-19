@@ -170,11 +170,15 @@ class ai:
         # 제거 isu_abbrv isu_srt_cd mkt_nm
         df = df.drop(['isu_abbrv', 'isu_srt_cd', 'mkt_nm'], axis=1)
 
+        # next_mmend_clsprc_change 이 급격하게 변하는 데이터는 제거
+        df = df[(df['mmend_clsprc_change_3'] >= -50) & (df['mmend_clsprc_change_3'] <= 50)]
+        df = df[(df['mmend_clsprc_change_6'] >= -50) & (df['mmend_clsprc_change_6'] <= 50)]
+        df = df[(df['mmend_clsprc_change_9'] >= -50) & (df['mmend_clsprc_change_9'] <= 50)]
+        df = df[(df['mmend_clsprc_change_12'] >= -50) & (df['mmend_clsprc_change_12'] <= 50)]
+        df = df[(df['next_mmend_clsprc_change'] >= -50) & (df['next_mmend_clsprc_change'] <= 50)]
+
         # NaN 값을 포함하는 행을 삭제
         df = df.dropna()
-
-        # next_mmend_clsprc_change 이 급격하게 변하는 데이터는 제거
-        df = df[(df['next_mmend_clsprc_change'] >= -30) & (df['next_mmend_clsprc_change'] <= 30)]
 
         # 데이터 전처리
         X = df.drop('next_mmend_clsprc_change', axis=1)

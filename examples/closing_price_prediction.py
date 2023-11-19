@@ -1,7 +1,8 @@
 import ifinance
 import pandas as pd
 
-#pd.set_option('display.max_columns', None)
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
 
 # 양방향미디어와서비스 조회
 df = ifinance.get_stock_dataframe('G502050')
@@ -32,6 +33,8 @@ kakao = ifinance.get_monthly_stock_dataframe('KR7035720002')
 
 # samsung, naver, kakao 데이터프레임을 병합
 merged = pd.concat([samsung, naver, kakao])
+
+print(merged)
 
 # 딥러닝 예측
 model = ifinance.ai.deep_learning(samsung)
