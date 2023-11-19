@@ -215,9 +215,13 @@ def get_monthly_stock_dataframe(isuCd):
         f"&endYymm={endYymm}"
     )
 
+    print('krx 크롤링 중...')
+
     response = requests.get(url)
 
     df = pd.DataFrame(response.json()['OutBlock_1'])
+
+    print('크롤링 완료')
 
     selected_fields = ["TRD_DD", "ISU_ABBRV", "ISU_SRT_CD", "MKT_NM", "MMEND_CLSPRC"]
     df_selected = df[selected_fields]
@@ -240,7 +244,7 @@ def get_monthly_stock_dataframe(isuCd):
     df = df.drop('trd_dd', axis=1)
 
     # 'month' 컬럼의 값이 1, 2, 4, 5, 7, 8, 10, 11인 행을 제거
-    months_to_remove = [1, 2, 4, 5, 7, 8, 10, 11]
+    months_to_remove = ['01', '02', '04', '05', '07', '08', '10', '11']
     df = df[~df['month'].isin(months_to_remove)]
 
     # 이전 분기의 종가 가져오기

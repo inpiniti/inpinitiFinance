@@ -173,6 +173,9 @@ class ai:
         # NaN 값을 포함하는 행을 삭제
         df = df.dropna()
 
+        # next_mmend_clsprc_change 이 급격하게 변하는 데이터는 제거
+        df = df[(df['next_mmend_clsprc_change'] >= -30) & (df['next_mmend_clsprc_change'] <= 30)]
+
         # 데이터 전처리
         X = df.drop('next_mmend_clsprc_change', axis=1)
         y = df['next_mmend_clsprc_change']
