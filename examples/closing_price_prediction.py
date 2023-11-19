@@ -36,7 +36,7 @@ merged = pd.concat([samsung, naver, kakao])
 
 print(merged)
 
-# 딥러닝 예측
+# 딥러닝 모델 생성
 model = ifinance.ai.deep_learning(samsung)
 
 # 2023.09 날짜 데이터 가져와서 
@@ -49,7 +49,12 @@ selected_data = selected_data_.drop(['isu_abbrv', 'isu_srt_cd', 'mkt_nm', 'next_
 # float 타입으로 변환
 selected_data = selected_data.astype('float32')
 
+# 생성한 딥러닝 모델로 예측
 predicted_data = model.predict(selected_data)
 
 for isu_abbrv, prediction in zip(selected_data_['isu_abbrv'], predicted_data):
     print(f"{isu_abbrv}: {prediction[0]}")
+
+# 삼성전자: -2800.45556640625
+# NAVER: -8107.1904296875
+# 카카오: -1882.025390625

@@ -2,11 +2,11 @@
 
 ![version](https://img.shields.io/badge/version-1.0.1-blue)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Dependencies](https://img.shields.io/badge/Dependencies-OpenDartReader-green.svg)
-![Dependencies](https://img.shields.io/badge/Dependencies-pandas-green.svg)
-![Dependencies](https://img.shields.io/badge/Dependencies-requests-green.svg)
-![Dependencies](https://img.shields.io/badge/Dependencies-sklearn-green.svg)
-![Dependencies](https://img.shields.io/badge/Dependencies-keras-green.svg)
+![Dependencies](https://img.shields.io/badge/OpenDartReader-0.2.3-green.svg)
+![Dependencies](https://img.shields.io/badge/pandas-2.1.3-green.svg)
+![Dependencies](https://img.shields.io/badge/requests-2.31.0-green.svg)
+![Dependencies](https://img.shields.io/badge/sklearn-0.0.post11-green.svg)
+![Dependencies](https://img.shields.io/badge/keras-2.13.1-green.svg)
 
 본 모듈은 Dart 전자공시시스템에서 재무정보,
 KRX 정보데이터시스템에서 개별종목 시세 추이,
