@@ -1,6 +1,6 @@
 # inpiniti finance
 
-![version](https://img.shields.io/badge/version-1.0.1-blue)
+![version](https://img.shields.io/badge/version-1.0.6-blue)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Dependencies](https://img.shields.io/badge/OpenDartReader-0.2.3-green.svg)
 ![Dependencies](https://img.shields.io/badge/pandas-2.1.3-green.svg)
@@ -246,7 +246,7 @@ model = ifinance.ai.elastic_net(df)
 Elastic Net Regression MSE: 79.1272
 ```
 
-# 13. Desicion Tree Regression
+### 13. Desicion Tree Regression
 
 ```
 model = ifinance.ai.decision_tree(df)
