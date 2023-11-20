@@ -10,6 +10,7 @@ from ai import ai
 api_key = 'your_api_key_here'
 
 def set_api_key(key):
+    global api_key
     api_key = key
 
 def mm(reprt_code):
