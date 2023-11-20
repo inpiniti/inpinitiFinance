@@ -24,6 +24,11 @@ def mm(reprt_code):
         return '12'
 
 # ex) get_financial_dataframe('005930')
+
+# year month sales operating_profit net_profit
+# sales_change_3 sales_change_6 sales_change_9 sales_change_12
+# operating_profit_change_3 operating_profit_change_6 operating_profit_change_9 operating_profit_change_12
+# net_profit_change_3 net_profit_change_6 net_profit_change_9 net_profit_change_12
 def get_financial_dataframe(corp):
     dart = OpenDartReader(api_key) 
 
@@ -237,16 +242,17 @@ def get_monthly_stock_dataframe(isuCd):
     # 'trd_dd' 컬럼을 '/' 기준으로 분리
     df[['year', 'month']] = df['trd_dd'].str.split('/', expand=True)
 
-    # 'year'와 'month' 컬럼의 데이터 타입을 정수로 변경
-    df['year'] = df['year']
-    df['month'] = df['month']
-
     # 'trd_dd' 컬럼을 제거
     df = df.drop('trd_dd', axis=1)
 
     # 'month' 컬럼의 값이 1, 2, 4, 5, 7, 8, 10, 11인 행을 제거
-    months_to_remove = ['01', '02', '04', '05', '07', '08', '10', '11']
+    # 'month' 컬럼의 값이 1, 3, 4, 6, 7, 9, 10, 12인 행을 제거
+    #                    2     5     8      11
+    months_to_remove = ['01', '03', '04', '06', '07', '09', '10', '12']
     df = df[~df['month'].isin(months_to_remove)]
+
+    # month 값을 1씩 증가 한 다음 문자열로 변환
+    df['month'] = (df['month'].astype(int) + 1).apply(lambda x: '{:02}'.format(x))
 
     # 이전 분기의 종가 가져오기
     df['prev1_mmend_clsprc'] = df['mmend_clsprc'].shift(1)
@@ -272,6 +278,9 @@ def get_monthly_stock_dataframe(isuCd):
 
 # financial_monthly_stock
 def merge_financial_and_monthly_stock_dataframe(fDf, pDf):
+    fDf['year'] = fDf['year'].astype(str)
+    pDf['year'] = pDf['year'].astype(str)
+
     # 두 dataframe 에서 year, month 확인하여 같은 것 끼리 merge
     merged_df = fDf.merge(pDf, on=['year', 'month'])
 

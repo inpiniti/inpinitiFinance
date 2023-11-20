@@ -265,3 +265,67 @@ model = ifinance.ai.random_forest(df)
 ```
 Random Forest Regression MSE: 200.4157
 ```
+
+### 15. 컬럼 예시
+
+| Column Name                | Description                  |
+| -------------------------- | ---------------------------- |
+| year                       | 연도                         |
+| month                      | 월                           |
+| sales                      | 매출                         |
+| operating_profit           | 영업 이익                    |
+| net_profit                 | 순이익                       |
+| sales_change_3             | 3개월 전 대비 매출 변동      |
+| sales_change_6             | 6개월 전 대비 매출 변동      |
+| sales_change_9             | 9개월 전 대비 매출 변동      |
+| sales_change_12            | 1년 전 대비 매출 변동        |
+| operating_profit_change_3  | 3개월 전 대비 영업 이익 변동 |
+| operating_profit_change_6  | 6개월 전 대비 영업 이익 변동 |
+| operating_profit_change_9  | 9개월 전 대비 영업 이익 변동 |
+| operating_profit_change_12 | 1년 전 대비 영업 이익 변동   |
+| net_profit_change_3        | 3개월 전 대비 순이익 변동    |
+| net_profit_change_6        | 6개월 전 대비 순이익 변동    |
+| net_profit_change_9        | 9개월 전 대비 순이익 변동    |
+| net_profit_change_12       | 1년 전 대비 순이익 변동      |
+| isu_abbrv                  | 종목 약어                    |
+| isu_srt_cd                 | 종목 코드                    |
+| mkt_nm                     | 시장 이름                    |
+| mmend_clsprc               | 월말 종가                    |
+| mmend_clsprc_change_3      | 3개월 전 대비 월말 종가 변동 |
+| mmend_clsprc_change_6      | 6개월 전 대비 월말 종가 변동 |
+| mmend_clsprc_change_9      | 9개월 전 대비 월말 종가 변동 |
+| mmend_clsprc_change_12     | 1년 전 대비 월말 종가 변동   |
+| next_mmend_clsprc_change   | 다음 월 월말 종가 변동       |
+
+### db 생성 쿼리
+
+```
+CREATE TABLE dart (
+    year VARCHAR(4),
+    month VARCHAR(2),
+    isu_abbrv VARCHAR(255),
+    isu_srt_cd VARCHAR(255),
+    mkt_nm VARCHAR(255),
+    sales FLOAT,
+    sales_change_3 FLOAT,
+    sales_change_6 FLOAT,
+    sales_change_9 FLOAT,
+    sales_change_12 FLOAT,
+    operating_profit FLOAT,
+    operating_profit_change_3 FLOAT,
+    operating_profit_change_6 FLOAT,
+    operating_profit_change_9 FLOAT,
+    operating_profit_change_12 FLOAT,
+    net_profit FLOAT,
+    net_profit_change_3 FLOAT,
+    net_profit_change_6 FLOAT,
+    net_profit_change_9 FLOAT,
+    net_profit_change_12 FLOAT,
+    mmend_clsprc FLOAT,
+    mmend_clsprc_change_3 FLOAT,
+    mmend_clsprc_change_6 FLOAT,
+    mmend_clsprc_change_9 FLOAT,
+    mmend_clsprc_change_12 FLOAT,
+    next_mmend_clsprc_change FLOAT
+);
+```

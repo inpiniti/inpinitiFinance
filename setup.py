@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name ='inpinitiFinance',
-    version = '1.0.6',
+    version = '1.0.8',
     description = 'finance data',
     author = 'inpiniti',
     author_email = 'younginpiniti@gmail.com',

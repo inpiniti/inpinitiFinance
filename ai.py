@@ -18,9 +18,9 @@ from sklearn.ensemble import RandomForestRegressor
 
 class ai:
     @staticmethod
-    def deep_learning(df):
+    def deep_learning(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
         # 전처리
-        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df)
+        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
         # 모델 구성
         model = Sequential()
@@ -46,9 +46,9 @@ class ai:
         return model
     
     @staticmethod
-    def regressor(df):
+    def regressor(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
         # 전처리
-        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df)
+        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
         # 선형 회귀 모델 생성
         model = LinearRegression()
@@ -66,9 +66,9 @@ class ai:
         return df
     
     @staticmethod
-    def ridge(df):
+    def ridge(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
         # 전처리
-        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df)
+        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
         # 선형 회귀 모델 생성
         model = Ridge()
@@ -86,9 +86,9 @@ class ai:
         return df
     
     @staticmethod
-    def lasso(df):
+    def lasso(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
         # 전처리
-        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df)
+        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
         # 선형 회귀 모델 생성
         model = Lasso()
@@ -106,9 +106,9 @@ class ai:
         return df
     
     @staticmethod
-    def elastic_net(df):
+    def elastic_net(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
         # 전처리
-        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df)
+        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
         # 선형 회귀 모델 생성
         model = ElasticNet()
@@ -126,9 +126,9 @@ class ai:
         return df
     
     @staticmethod
-    def decision_tree(df):
+    def decision_tree(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
         # 전처리
-        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df)
+        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
         # 선형 회귀 모델 생성
         model = DecisionTreeRegressor()
@@ -146,9 +146,9 @@ class ai:
         return df
     
     @staticmethod
-    def random_forest(df):
+    def random_forest(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
         # 전처리
-        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df)
+        X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
         # 선형 회귀 모델 생성
         model = RandomForestRegressor()
@@ -166,9 +166,9 @@ class ai:
         return df
     
     @staticmethod
-    def clean_and_remove_missing_data(df):
+    def clean_and_remove_missing_data(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
         # 제거 isu_abbrv isu_srt_cd mkt_nm
-        df = df.drop(['isu_abbrv', 'isu_srt_cd', 'mkt_nm'], axis=1)
+        df = df.drop(drop_columns, axis=1)
 
         # next_mmend_clsprc_change 이 급격하게 변하는 데이터는 제거
         df = df[(df['mmend_clsprc_change_3'] >= -50) & (df['mmend_clsprc_change_3'] <= 50)]
