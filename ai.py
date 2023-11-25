@@ -18,7 +18,7 @@ from sklearn.ensemble import RandomForestRegressor
 
 class ai:
     @staticmethod
-    def deep_learning(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
+    def deep_learning(df, drop_columns=[]):
         # 전처리
         X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
