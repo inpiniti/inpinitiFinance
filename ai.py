@@ -46,7 +46,7 @@ class ai:
         return model
     
     @staticmethod
-    def regressor(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
+    def regressor(df, drop_columns=[]):
         # 전처리
         X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
@@ -66,7 +66,7 @@ class ai:
         return df
     
     @staticmethod
-    def ridge(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
+    def ridge(df, drop_columns=[]):
         # 전처리
         X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
@@ -86,7 +86,7 @@ class ai:
         return df
     
     @staticmethod
-    def lasso(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
+    def lasso(df, drop_columns=[]):
         # 전처리
         X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
@@ -106,7 +106,7 @@ class ai:
         return df
     
     @staticmethod
-    def elastic_net(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
+    def elastic_net(df, drop_columns=[]):
         # 전처리
         X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
@@ -126,7 +126,7 @@ class ai:
         return df
     
     @staticmethod
-    def decision_tree(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
+    def decision_tree(df, drop_columns=[]):
         # 전처리
         X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
@@ -146,7 +146,7 @@ class ai:
         return df
     
     @staticmethod
-    def random_forest(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
+    def random_forest(df, drop_columns=[]):
         # 전처리
         X_train, X_test, y_train, y_test = ai.clean_and_remove_missing_data(df, drop_columns)
 
@@ -166,7 +166,7 @@ class ai:
         return df
     
     @staticmethod
-    def clean_and_remove_missing_data(df, drop_columns=['year', 'month', 'isu_abbrv', 'isu_srt_cd', 'mkt_nm']):
+    def clean_and_remove_missing_data(df, drop_columns=[]):
         # 제거 isu_abbrv isu_srt_cd mkt_nm
         df = df.drop(drop_columns, axis=1)
 
