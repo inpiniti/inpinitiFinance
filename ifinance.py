@@ -91,6 +91,10 @@ def get_financial_dataframe(corp):
             except Exception as e:
                 continue
 
+    # df 가 empty 인 경우, None 반환하고 함수 종료
+    if df.empty:
+        return None
+
     # 이전 분기의 매출액 가져오기
     df['prev_sales'] = df['sales'].shift(1)
     df['prev2_sales'] = df['sales'].shift(2)
@@ -221,7 +225,7 @@ def get_monthly_stock_dataframe(isuCd):
         f"&endYymm={endYymm}"
     )
 
-    print('krx 크롤링 중...')
+    print('url', url)
 
     response = requests.get(url)
 
