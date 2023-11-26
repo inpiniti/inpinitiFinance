@@ -63,7 +63,7 @@ class ai:
         mse = mean_squared_error(y_test, pred)
         print(f'Linear Regression MSE: {mse:.4f}')
 
-        return df
+        return model
     
     @staticmethod
     def ridge(df, drop_columns=[]):
@@ -83,7 +83,7 @@ class ai:
         mse = mean_squared_error(y_test, pred)
         print(f'Ridge Regression MSE: {mse:.4f}')
 
-        return df
+        return model
     
     @staticmethod
     def lasso(df, drop_columns=[]):
@@ -103,7 +103,7 @@ class ai:
         mse = mean_squared_error(y_test, pred)
         print(f'Lasso Regression MSE: {mse:.4f}')
 
-        return df
+        return model
     
     @staticmethod
     def elastic_net(df, drop_columns=[]):
@@ -123,7 +123,7 @@ class ai:
         mse = mean_squared_error(y_test, pred)
         print(f'Elastic Net Regression MSE: {mse:.4f}')
 
-        return df
+        return model
     
     @staticmethod
     def decision_tree(df, drop_columns=[]):
@@ -143,7 +143,7 @@ class ai:
         mse = mean_squared_error(y_test, pred)
         print(f'Decision Tree Regression MSE: {mse:.4f}')
 
-        return df
+        return model
     
     @staticmethod
     def random_forest(df, drop_columns=[]):
@@ -163,7 +163,7 @@ class ai:
         mse = mean_squared_error(y_test, pred)
         print(f'Random Forest Regression MSE: {mse:.4f}')
 
-        return df
+        return model
     
     @staticmethod
     def clean_and_remove_missing_data(df, drop_columns=[]):
