@@ -53,8 +53,9 @@ def get_financial_dataframe(corp):
 
                 # 연결재무제표 데이터만 가져오기
                 fs = fs.loc[fs['fs_nm'] == '연결재무제표']
+
                 # 당기순이익, 영업이익, 매출액 추출
-                fs = fs.loc[fs['account_nm'].isin(['당기순이익', '영업이익', '매출액'])]
+                fs = fs.loc[fs['account_nm'].isin(['당기순이익', '영업이익', '매출액', '법인세차감전 순이익', '당기순이익(손실)' ])]
                 
                 # 열 필터링
                 fs = fs.loc[:, ['account_nm', 'thstrm_dt', 'thstrm_amount']]
@@ -77,18 +78,23 @@ def get_financial_dataframe(corp):
                 sales = fs[fs['account_nm'] == '매출액'].rename(columns={'thstrm_amount': 'sales'})
                 operating_profit = fs[fs['account_nm'] == '영업이익'].rename(columns={'thstrm_amount': 'operating_profit'})
                 net_profit = fs[fs['account_nm'] == '당기순이익'].rename(columns={'thstrm_amount': 'net_profit'})
+                pre_tax_profit = fs[fs['account_nm'] == '법인세차감전 순이익'].rename(columns={'thstrm_amount': 'pre_tax_profit'})
+                net_profit_loss = fs[fs['account_nm'] == '당기순이익(손실)'].rename(columns={'thstrm_amount': 'net_profit_loss'})
 
                 # 데이터프레임 병합
-                result = pd.merge(sales, operating_profit, on=['year', 'month'], how='outer')
-                result = pd.merge(result, net_profit, on=['year', 'month'], how='outer')
+                result = pd.merge(sales, operating_profit, on=['year', 'month'], how='outer', suffixes=('_sales', '_operating_profit'))
+                result = pd.merge(result, net_profit, on=['year', 'month'], how='outer', suffixes=('_result', '_net_profit'))
+                result = pd.merge(result, pre_tax_profit, on=['year', 'month'], how='outer', suffixes=('_result', '_pre_tax_profit'))
+                result = pd.merge(result, net_profit_loss, on=['year', 'month'], how='outer', suffixes=('_result', '_net_profit_loss'))
 
                 # 필드 이름 변경
-                result = result[['year', 'month', 'sales', 'operating_profit', 'net_profit']]
+                result = result[['year', 'month', 'sales', 'operating_profit', 'net_profit', 'pre_tax_profit', 'net_profit_loss']]
 
                 # 결과를 df에 추가
                 df = pd.concat([df, result], ignore_index=True)
                 
             except Exception as e:
+                print(e)
                 continue
 
     # df 가 empty 인 경우, None 반환하고 함수 종료
